@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :name, prompt: "Select a user" %>
   </div>
 
   <div>
@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Task.statuses.keys.map { |s| [s.humanize, s] } %>
   </div>
 
   <div>
